@@ -1,0 +1,42 @@
+/* components/LoadingScreen/LoadingScreen.css */
+@font-face {
+    font-family: 'Vortax';
+    src: url('../../assets/fonts/Vortax.otf') format('woff2');
+  }
+  
+  .loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 1s ease;
+  }
+  
+  .vortax-text {
+    font-family: 'Vortax', sans-serif;
+    font-size: 4rem;
+    letter-spacing: 2px;
+  }
+  
+  .letter-fade {
+    opacity: 0;
+    animation: letterFade 0.5s ease-out forwards;
+    display: inline-block;
+    color: #fff;
+  }
+  
+  @keyframes letterFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .loaded {
+    opacity: 0;
+    pointer-events: none;
+  }

@@ -1,0 +1,52 @@
+.upload-container {
+    position: relative;
+    margin: 2rem auto;
+  }
+  
+  .upload-button {
+    display: block;
+    position: relative;
+    background: linear-gradient(45deg, #dcdcdc, #a9a9a9);
+    border: none;
+    border-radius: 50px;
+    padding: 1.2rem 3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    font-family: 'Bowlby One SC', sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #333;
+  }
+  
+  .upload-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 25px rgba(192,192,192,0.4);
+  }
+  
+  .upload-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.2),
+      transparent
+    );
+    transition: 0.5s;
+  }
+  
+  .upload-button:hover::before {
+    left: 100%;
+  }
+  
+  .has-file .upload-button {
+    background: linear-gradient(45deg, #dcdcdc, #a9a9a9);
+  }
+  

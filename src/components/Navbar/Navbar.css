@@ -1,0 +1,79 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.logo {
+  font-family: 'Bowlby One SC', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.15em;
+  color: #C0C0C0; /* Silver tone */
+  text-decoration: none;
+  text-shadow: 0 0 15px rgba(255,255,255,0.5); /* Subtle shine */
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #dcdcdc, #a9a9a9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #C0C0C0;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #C0C0C0;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Navbar.css iPhone SE fixes */
+@media (max-width: 375px) {
+  .navbar {
+    padding: 1rem;
+    height: 60px;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .nav-link {
+    font-size: 0.9rem;
+  }
+}

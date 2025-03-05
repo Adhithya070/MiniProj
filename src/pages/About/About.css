@@ -1,0 +1,128 @@
+/* About.css */
+.about-container {
+    padding: 7rem 1.5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #fff;
+  }
+  
+  .about-container h1 {
+    font-family: 'Bowlby One SC', sans-serif;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-size: 2.5rem;
+    letter-spacing: 0.1em;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255,255,255,0.3);
+    animation: titleFloat 3s ease-in-out infinite;
+  }
+  
+  @keyframes titleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  .content-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(30, 30, 30, 0.95);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transform: translateX(-50px);
+    opacity: 0;
+    animation: sectionSlide 0.6s ease-out forwards;
+  }
+  
+  @keyframes sectionSlide {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .content-section:nth-child(even) {
+    animation-delay: 0.2s;
+    transform: translateX(50px);
+  }
+  
+  .content-section h2 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-family: 'Orbitron', sans-serif;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .content-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #fff;
+    animation: lineExpand 0.8s ease-out forwards;
+  }
+  
+  @keyframes lineExpand {
+    from { width: 0 }
+    to { width: 50px }
+  }
+  
+  .features-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .features-list li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+    opacity: 0;
+    animation: listItemFade 0.4s ease-out forwards;
+  }
+  
+  @keyframes listItemFade {
+    to { opacity: 1 }
+  }
+  
+  .features-list li::before {
+    content: '■';
+    position: absolute;
+    left: 0;
+    color: #fff;
+    font-size: 0.8rem;
+  }
+  
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .spec-card {
+    padding: 1.5rem;
+    background: rgba(40, 40, 40, 0.9);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .spec-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(255,255,255,0.05);
+  }
+  
+  @media (max-width: 375px) { /* iPhone SE */
+    .about-container {
+      padding-top: 6rem;
+    }
+    
+    .about-container h1 {
+      font-size: 1.8rem;
+    }
+    
+    .content-section {
+      padding: 1rem;
+    }
+  }

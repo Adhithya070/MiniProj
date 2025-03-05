@@ -1,0 +1,28 @@
+:root {
+    --dark-1: #0a0a0a;
+    --dark-2: #1a1a1a;
+    --grey-1: #2d2d2d;
+    --grey-2: #444444;
+    --accent: #ad52f2;
+    --accent-gradient: linear-gradient(45deg, #ad52f2, #7d3cff);
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--dark-1);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }

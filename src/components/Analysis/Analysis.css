@@ -1,0 +1,62 @@
+/* Analysis.css */
+.analysis-container {
+  margin-top: 4rem;
+  padding: 2rem;
+  background: var(--dark-2);
+  border-radius: 16px;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.metric-card {
+  padding: 1.5rem;
+  background: var(--grey-1);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.metric-value {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  margin-top: 1rem;
+  color: var(--accent);
+}
+
+.frame-analysis h2 {
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.frames-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.frame-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.frame-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.frame-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+  font-size: 0.9rem;
+}
