@@ -9,7 +9,6 @@ const Home = () => {
   const [analysisData, setAnalysisData] = useState(null);
   const [videoPreview, setVideoPreview] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const navigate = useNavigate();
 
   const handleScroll = useCallback(() => {
     const scrollY = window.scrollY;
