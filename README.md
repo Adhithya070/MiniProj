@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+# Deepfake Detection Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**A web application for detecting deepfake videos using machine learning techniques.**
 
-## Available Scripts
+![Project Logo](https://via.placeholder.com/150) <!-- Replace with your project logo -->
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup Instructions](#setup-instructions)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Overview
+This project is a web-based tool that detects deepfake videos. It uses a StyleGAN2 discriminator model to analyze video frames and determine if they are real or fake. The app has a React frontend for users to interact with and a Flask backend to process videos.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
+- **Video Upload:** Upload videos through the web interface.
+- **Frame Extraction:** Extracts frames from videos for analysis.
+- **Deepfake Detection:** Classifies frames as real or fake using StyleGAN2.
+- **Results:** Displays if the video is a deepfake and shows suspect frames.
+- **Hardware Friendly:** Works well on mid-range GPUs like the NVIDIA 1660Ti Max-Q.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
+- **Frontend:** React.js
+- **Backend:** Flask (Python)
+- **Machine Learning:** PyTorch, StyleGAN2
+- **Image Processing:** OpenCV, Pillow
+- **API:** Axios
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Setup Instructions
 
-### `npm run eject`
+### Prerequisites
+- Python 3.8 or higher
+- Node.js and npm
+- Git (optional, for cloning)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+###Step 2: Set Up the Backend
+-- **Go to the backend folder:**
+```bash
+cd backend
+```
+-- **Create and activate a virtual environment:**
+--- Windows:
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+--- macOS/Linux:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+-- **Install Python packages:**
+```bash
+pip install -r requirements.txt
+```
+### Step 3: Set Up the Frontend
+-- **Go to the frontend folder:**
+```bash
+cd ../frontend
+```
+-- **Install npm packages:**
+```bash
+npm install
+```
+### Step 4: Add Pre-trained Models
+-- **Download the StyleGAN2 model weights from NVIDIA's repository and place them in backend/models.**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
+### Start the Backend
+-- **In the backend folder, with the virtual environment active, run:**
+```bash
+python app.py
+```
+-- Backend runs at http://localhost:5000.
+-- Start the Frontend
+-- **In the frontend folder, run:**
+```bash
+npm start
+```
+-- Frontend runs at http://localhost:3000.
+-- **Use the App**
+-- 1. Open http://localhost:3000 in your browser.
+-- 2. Upload a video.
+-- 3. See the results, including any frames flagged as fake.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Configuration
+### Backend
+-- API URL: Frontend talks to http://localhost:5000. Change this in the frontend if needed.
+-- Model Path: Check that app.py points to the right model file.
+###Frontend
+-- Environment Variables: Add a .env file in frontend for settings like the API URL.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contributing
+### Want to help? Here’s how:
+-- 1. Fork this repository.
+-- 2. Create a branch for your changes.
+-- 3. Submit a pull request with details of what you did.
 
-## Learn More
+##License
+###This project uses the MIT License.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+###Acknowledgements
+-- StyleGAN2 by NVIDIA
+-- Flask
+-- React
