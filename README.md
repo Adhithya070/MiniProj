@@ -54,73 +54,123 @@ This project is a web-based tool that detects deepfake videos. It uses a StyleGA
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
 ```
-###Step 2: Set Up the Backend
--- **Go to the backend folder:**
-```bash
+Step 2: Clone NVIDIA’s StyleGAN2-ADA-PyTorch Repository
+bash
+Copy
+git clone https://github.com/NVlabs/stylegan2-ada-pytorch.git backend/stylegan2-ada-pytorch
+Step 3: Set Up the Backend
+Navigate to the backend folder:
+
+bash
+Copy
 cd backend
-```
--- **Create and activate a virtual environment:**
---- Windows:
-```bash
+Create and activate a virtual environment:
+
+Windows:
+
+bash
+Copy
 python -m venv venv
 venv\Scripts\activate
-```
---- macOS/Linux:
-```bash
+macOS/Linux:
+
+bash
+Copy
 python3 -m venv venv
 source venv/bin/activate
-```
--- **Install Python packages:**
-```bash
+Install Python packages:
+
+bash
+Copy
 pip install -r requirements.txt
-```
-### Step 3: Set Up the Frontend
--- **Go to the frontend folder:**
-```bash
+Step 4: Add Pre-trained Models
+Download the StyleGAN2-ADA model weights (e.g., pretrained.pkl) from NVIDIA’s official repository.
+
+Place the downloaded model file in the backend/models directory.
+
+Step 5: Set Up the Frontend
+Navigate to the frontend folder:
+
+bash
+Copy
 cd ../frontend
-```
--- **Install npm packages:**
-```bash
+Install npm packages:
+
+bash
+Copy
 npm install
-```
-### Step 4: Add Pre-trained Models
--- **Download the StyleGAN2 model weights from NVIDIA's repository and place them in backend/models.**
+Usage
+Start the Backend
+In the backend folder, activate the virtual environment if not already active:
 
-## Usage
-### Start the Backend
--- **In the backend folder, with the virtual environment active, run:**
-```bash
+Windows:
+
+bash
+Copy
+venv\Scripts\activate
+macOS/Linux:
+
+bash
+Copy
+source venv/bin/activate
+Run the Flask server:
+
+bash
+Copy
 python app.py
-```
--- Backend runs at http://localhost:5000.
--- Start the Frontend
--- **In the frontend folder, run:**
-```bash
+The backend will run at http://localhost:5000.
+
+Start the Frontend
+In the frontend folder, start the React app:
+
+bash
+Copy
 npm start
-```
--- Frontend runs at http://localhost:3000.
--- **Use the App**
--- 1. Open http://localhost:3000 in your browser.
--- 2. Upload a video.
--- 3. See the results, including any frames flagged as fake.
+The frontend will run at http://localhost:3000.
 
-## Configuration
-### Backend
--- API URL: Frontend talks to http://localhost:5000. Change this in the frontend if needed.
--- Model Path: Check that app.py points to the right model file.
-###Frontend
--- Environment Variables: Add a .env file in frontend for settings like the API URL.
+Use the Application
+Open http://localhost:3000 in your browser.
 
-## Contributing
-### Want to help? Here’s how:
--- 1. Fork this repository.
--- 2. Create a branch for your changes.
--- 3. Submit a pull request with details of what you did.
+Upload a video file (MP4, AVI, or MOV).
 
-##License
-###This project uses the MIT License.
+Wait for the backend to process the video and display the results.
 
-###Acknowledgements
--- StyleGAN2 by NVIDIA
--- Flask
--- React
+Review the detection results, including flagged frames.
+
+Configuration
+Backend
+API Endpoint: The frontend communicates with http://localhost:5000 by default. Update this in frontend/src/api.js if needed.
+
+Model Path: Ensure app.py points to the correct model file in backend/models.
+
+Frontend
+Environment Variables: Create a .env file in the frontend folder to customize settings (e.g., REACT_APP_API_URL=http://localhost:5000).
+
+Contributing
+Fork this repository.
+
+Create a feature branch:
+
+bash
+Copy
+git checkout -b feature/your-feature
+Commit your changes:
+
+bash
+Copy
+git commit -m "Add your message"
+Push to the branch:
+
+bash
+Copy
+git push origin feature/your-feature
+Open a pull request on GitHub.
+
+License
+This project is licensed under the MIT License. See LICENSE for details.
+
+Acknowledgements
+StyleGAN2-ADA-PyTorch by NVIDIA
+
+Flask and React communities for documentation and tools.
+
