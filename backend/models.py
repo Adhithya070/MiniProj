@@ -1,5 +1,5 @@
 import sys
-sys.path.append("D:/miniproj/stylegan2_ada_pytorch")
+sys.path.append("backend/stylegan2_ada_pytorch")
 import torch
 from torch.serialization import add_safe_globals
 from torch_utils.persistence import _reconstruct_persistent_obj

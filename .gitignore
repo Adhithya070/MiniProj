@@ -22,5 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/stylegan-env
+/backend/stylegan-env
 /backend/models
+/backend/stylegan2_ada_pytorch
