@@ -8,26 +8,23 @@ const Analysis = ({ data }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      <div className="metrics">
-        <div className="metric-card">
-          <h3>Authenticity Score</h3>
-          <div className="metric-value">{data.authenticity}%</div>
-        </div>
-        <div className="metric-card">
-          <h3>StyleGAN Confidence</h3>
-          <div className="metric-value">{data.metrics.styleganScore}</div>
-        </div>
+      <div className="result-banner">
+        <h1>{data.is_deepfake ? "DEEPFAKE" : "AUTHENTIC"}</h1>
       </div>
-
+      <div className="details">
+        {data.summary.split('\n').map((line, index) => (
+          <p key={index}>{line}</p>
+        ))}
+      </div>
       <div className="frame-analysis">
         <h2>Forensic Frame Analysis</h2>
-        <div className="frames-grid">
-          {data.frames.map((frame, i) => (
+        <div className="frames-scroll">
+          {data.top_frames.map((frame, i) => (
             <div key={i} className="frame-card">
-              <img src={frame.image} alt={`Frame ${i+1}`} />
-              <div className="frame-details">
-                <span>Artifacts Detected: {frame.artifacts}</span>
-              </div>
+              <img 
+                src={`data:image/png;base64,${frame}`} 
+                alt={`Frame ${i + 1}`} 
+              />
             </div>
           ))}
         </div>

@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
 import UploadButton from '../../components/UploadButton/UploadButton';
 import Analysis from '../../components/Analysis/Analysis';
 import './Home.css';
@@ -9,6 +8,7 @@ const Home = () => {
   const [analysisData, setAnalysisData] = useState(null);
   const [videoPreview, setVideoPreview] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const handleScroll = useCallback(() => {
     const scrollY = window.scrollY;
@@ -24,41 +24,41 @@ const Home = () => {
 
   const handleAnalysis = useCallback(async (file) => {
     if (!file) return;
-    
+
+    setIsProcessing(true);
     const previewUrl = URL.createObjectURL(file);
     setVideoPreview(previewUrl);
 
-    // Simulated analysis
-    const result = await new Promise(resolve => {
-      setTimeout(() => {
-        resolve({
-          authenticity: 92.4,
-          frames: Array(3).fill().map((_, i) => ({
-            image: `https://picsum.photos/300/200?random=${i}`,
-            artifacts: Math.floor(Math.random() * 15) + 5
-          })),
-          metrics: {
-            styleganScore: 0.87,
-            forensicMatches: 23
-          }
-        });
-      }, 1500);
-    });
+    const formData = new FormData();
+    formData.append('video', file);
 
-    setAnalysisData(result);
+    try {
+      const response = await fetch('http://localhost:5000/analyze', {
+        method: 'POST',
+        body: formData,
+      });
+      if (!response.ok) {
+        throw new Error('Analysis failed');
+      }
+      const result = await response.json();
+      setAnalysisData(result);
+    } catch (error) {
+      console.error('Error during analysis:', error);
+    } finally {
+      setIsProcessing(false);
+    }
   }, []);
 
   const handleRemove = useCallback(() => {
     setVideoPreview(null);
     setAnalysisData(null);
   }, []);
-  
+
   return (
     <div className="home-container">
       <section className="hero-section">
         <div className="title-frame">
           <h1 className="main-title">Deepfake Detection</h1>
-          
           <div className="image-container">
             <img 
               src={frameImage} 
@@ -70,12 +70,10 @@ const Home = () => {
               }}
             />
           </div>
-  
           <p className="project-description">
             ADVANCED AI-POWERED DETECTION SYSTEM<br/>
             UNMASKING DIGITAL DECEPTION
           </p>
-  
           <UploadButton 
             onFileSelect={handleAnalysis}
             onRemove={handleRemove}
@@ -86,8 +84,14 @@ const Home = () => {
 
       {/* Analysis Section */}
       {videoPreview && (
-        <div className="video-analysis-section">
+        <div className="video-analysis-section" style={{ position: 'relative' }}>
           <video src={videoPreview} controls className="video-preview" />
+          {isProcessing && (
+            <div className="processing-overlay">
+              <div className="spinner"></div>
+              <div>Analyzing...</div>
+            </div>
+          )}
           {analysisData && <Analysis data={analysisData} />}
         </div>
       )}

@@ -1,14 +1,6 @@
-import { useCallback } from 'react';
 import './UploadButton.css';
 
 const UploadButton = ({ onFileSelect, onRemove, hasFile }) => {
-  const handleClick = useCallback((e) => {
-    if (hasFile) {
-      e.preventDefault();
-      onRemove();
-    }
-  }, [hasFile, onRemove]);
-
   return (
     <div className={`upload-container ${hasFile ? 'has-file' : ''}`}>
       <label className="upload-button">
@@ -19,7 +11,10 @@ const UploadButton = ({ onFileSelect, onRemove, hasFile }) => {
             if (e.target.files?.[0]) onFileSelect(e.target.files[0]);
           }}
           onClick={(e) => {
-            if (hasFile) e.preventDefault();
+            if (hasFile) {
+              e.preventDefault();
+              onRemove();
+            }
           }}
           style={{ display: 'none' }}
         />
