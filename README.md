@@ -2,8 +2,6 @@
 
 **A web application for detecting deepfake videos using machine learning techniques.**
 
-![Project Logo](https://via.placeholder.com/150) <!-- Replace with your project logo -->
-
 ---
 
 ## Table of Contents
@@ -109,28 +107,31 @@ source venv/bin/activate
 ```bash
 python app.py
 ```
-- The backend will run at [http://localhost:5000].
+- The backend will run at `http://localhost:5000`.
 
 ### **Start the Frontend**
 - **In the frontend folder, run:**
 ```bash
 npm start
 ```
-- Frontend runs at [http://localhost:3000].
+- Frontend runs at `http://localhost:3000`.
   
 ### **Use the App**
-1. Open (http://localhost:3000) in your browser.
+1. Open `http://localhost:3000` in your browser.
 2. Upload a video file (MP4, AVI, or MOV).
 3. Wait for the backend to process the video and display the results.
 4. Review the detection results, including flagged frames.
 ---
 
+## DEMO
+![recdemo](https://github.com/user-attachments/assets/0a5e77ad-6296-4ddd-af01-21fe86fc0593)
+
 ## Configuration
 ### Backend
-- API Endpoint: The frontend communicates with {http://localhost:5000} by default. Update this in frontend/src/api.js if needed.
-- Model Path: Ensure app.py points to the correct model file in backend/models.
+- API Endpoint: The frontend communicates with `http://localhost:5000` by default. Update this in `frontend/src/api.js` if needed.
+- Model Path: Ensure app.py points to the correct model file in `backend/models`.
 ###Frontend
-- Environment Variables: Create a '.env' file in the frontend folder to customize settings (e.g., REACT_APP_API_URL="http://localhost:5000").
+- Environment Variables: Create a `.env` file in the frontend folder to customize settings (e.g., REACT_APP_API_URL=`http://localhost:5000`).
 
 ## Contributing
 ### Want to help? Here’s how:
@@ -138,10 +139,10 @@ npm start
 2. Create a branch for your changes.
 3. Submit a pull request with details of what you did.
 
-##License
-###This project uses the MIT License. See LICENSE for details.
+## License
+### This project uses the MIT License. See [LICENSE]((https://choosealicense.com/licenses/mit/)) for details.
 
-###Acknowledgements
-- StyleGAN2 by NVIDIA
+### Acknowledgements
+- [StyleGAN2](https://github.com/NVlabs/stylegan2-ada-pytorch) by NVIDIA
 - Flask
 - React
