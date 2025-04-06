@@ -9,7 +9,7 @@ const Analysis = ({ data }) => {
       animate={{ opacity: 1 }}
     >
       <div className="result-banner">
-        <h1>{data.is_deepfake ? "DEEPFAKE" : "AUTHENTIC"}</h1>
+        <h1>{data.overall_result.toUpperCase()}</h1>
       </div>
       <div className="details">
         {data.summary.split('\n').map((line, index) => (
@@ -17,7 +17,7 @@ const Analysis = ({ data }) => {
         ))}
       </div>
       <div className="frame-analysis">
-        <h2>Forensic Frame Analysis</h2>
+        <h2>Video Forensic Frame Analysis</h2>
         <div className="frames-scroll">
           {data.top_frames.map((frame, i) => (
             <div key={i} className="frame-card">
@@ -28,6 +28,15 @@ const Analysis = ({ data }) => {
             </div>
           ))}
         </div>
+      </div>
+      <div className="audio-analysis">
+        <h2>Audio Analysis</h2>
+        <p>
+          Audio Fake Probability: {data.audio_result.fake_probability.toFixed(2)}
+        </p>
+        <p>
+          Audio is classified as: {data.audio_result.fake_probability > 0.5 ? "Fake" : "Real"}
+        </p>
       </div>
     </motion.div>
   );
